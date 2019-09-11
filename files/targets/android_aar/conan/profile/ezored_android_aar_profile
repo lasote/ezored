@@ -4,6 +4,7 @@ include(default)
 os=Android
 os.api_level=21
 compiler=clang
+compiler.libcxx=libc++
 compiler.version=8
 arch=armv7
 
