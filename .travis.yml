@@ -18,6 +18,7 @@ script:
   - python make.py target linux_app build
   - python make.py target linux_app package
 after_failure:
+  - python run.py
   - cat /tmp/kk.log
 
 
