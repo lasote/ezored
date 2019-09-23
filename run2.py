@@ -1,6 +1,8 @@
 import requests
 import logging
 import os
+import httplib
+httplib.HTTPConnection.debuglevel = 5
 
 logging.basicConfig()
 logging.getLogger().setLevel(logging.DEBUG)
