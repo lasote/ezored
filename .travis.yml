@@ -9,17 +9,9 @@ addons:
       - g++-multilib
 install:
   - pip install conan==1.18.5.dev1
-before_script:
-  - conan profile new default --detect
-  - conan profile update settings.compiler.libcxx=libstdc++11 default
-  - python make.py conan install_profiles
+
 script:
-  - python make.py target linux_app conan
-  - python make.py target linux_app build
-  - python make.py target linux_app package
-after_failure:
   - python run.py
-  - cat /tmp/kk.log
 
 
 
