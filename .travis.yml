@@ -17,3 +17,6 @@ script:
   - python make.py target linux_app conan
   - python make.py target linux_app build
   - python make.py target linux_app package
+after_failure:
+  - cat /tmp/kk.log
+
