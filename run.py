@@ -9,6 +9,8 @@ def with_session():
             if resp.is_redirect:
                 # print(resp.headers['location'])
                 print("\n\n return modified \n\n")
+                print(resp.headers['location'])
+                print(resp.headers['location'].__class__)
                 return resp.headers['location'].replace("%7E", "~")
             return None
 
