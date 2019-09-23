@@ -8,7 +8,7 @@ def with_session():
         def get_redirect_target(self, resp):
             if resp.is_redirect:
                 print(resp.headers['location'])
-                return resp.headers['location']
+                return resp.headers['location'].replace("%7E", "~")
             return None
 
     with UTF8RedirectingSession() as session:
