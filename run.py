@@ -7,7 +7,8 @@ def with_session():
     class UTF8RedirectingSession(requests.Session):
         def get_redirect_target(self, resp):
             if resp.is_redirect:
-                return resp.headers['location'].encode('latin1').decode('utf8')
+                print(resp.headers['location'])
+                return resp.headers['location']
             return None
 
     with UTF8RedirectingSession() as session:
