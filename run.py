@@ -36,7 +36,9 @@ if __name__ == "__main__":
 
     def get_redirect_target(self, resp, _orig=SessionRedirectMixin.get_redirect_target):
         try:
-            return _orig(self, resp)
+            tmp = _orig(self, resp)
+            if tmp:
+                return tmp.replace("~", "%7E")
         except UnicodeDecodeError:
             return resp.headers['location']
 
