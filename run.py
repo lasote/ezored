@@ -11,7 +11,7 @@ def with_session():
                 print("\n\n return modified \n\n")
                 print(resp.headers['location'])
                 print(resp.headers['location'].__class__)
-                return resp.headers['location'].replace("%7E", "~")
+                return resp.headers['location'].replace("%7E", "~").encode("latin1").decode("utf-8")
             return None
 
     with UTF8RedirectingSession() as session:
