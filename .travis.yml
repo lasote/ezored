@@ -2,9 +2,9 @@ os: linux
 dist: xenial
 language: python
 python: "3.7"
-setup:
-  - pip install requests requests[security] 
+
 script:
+  - pip install requests requests[security] 
   - echo "-------------------------INSIDE PYTHON------------------------------------"
   - python run.py
 
