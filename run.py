@@ -32,9 +32,22 @@ if __name__ == "__main__":
     
     #response = requests.get("https://api.bintray.com:443/conan/conan/conan-center/v1/files/conan/OpenSSL/1.1.1c/stable/0/package/8f5c5dedfae9faebaa2d65d5c8f43d2ec7d219de/0/conan_package.tgz")
 
-    ret = with_session()
-    while not ret.ok:
-        with_session()
+    from requests.sessions import SessionRedirectMixin
+
+    def get_redirect_target(self, resp, _orig=SessionRedirectMixin.get_redirect_target):
+        try:
+            return _orig(self, resp)
+        except UnicodeDecodeError:
+            return resp.headers['location']
+
+    SessionRedirectMixin.get_redirect_target = get_redirect_target
+
+    response = requests.get("https://api.bintray.com:443/conan/conan/conan-center/v1/files/conan/OpenSSL/1.1.1c/stable/0/package/8f5c5dedfae9faebaa2d65d5c8f43d2ec7d219de/0/conan_package.tgz")
+
+
+   # ret = with_session()
+   # while not ret.ok:
+   #     with_session()
 
 #   if not response.ok:
 #        print(response)
