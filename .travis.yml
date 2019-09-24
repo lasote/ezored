@@ -6,7 +6,7 @@ python: "3.7"
 script:
   - pip install requests requests[security] 
   - echo "-------------------------INSIDE PYTHON------------------------------------"
-  - python run.py
+  - python run2.py
  
 
 
