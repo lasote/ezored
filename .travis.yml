@@ -4,7 +4,7 @@ language: python
 python: "3.7"
 
 script:
-  - pip install requests==2.21
+  - pip install requests==2.22 urllib3==1.25.3
   - echo "-------------------------INSIDE PYTHON------------------------------------"
   - python run2.py
  
