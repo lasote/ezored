@@ -42,7 +42,11 @@ if __name__ == "__main__":
     from requests.sessions import SessionRedirectMixin
 
     def get_redirect_target(self, resp):
-        return resp.headers.get('location')
+        tmp = resp.headers.get('location')
+        if tmp:
+            print("TIPO: {}".format(tmp.__class__))
+            print("VALOR: {}".format(tmp))
+            return tmp
 
 
     def resolve_redirects(self, resp, req, stream=False, timeout=None,
