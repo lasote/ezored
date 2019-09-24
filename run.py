@@ -161,6 +161,7 @@ if __name__ == "__main__":
 
                 # extract redirect url, if any, for the next loop
                 url = self.get_redirect_target(resp)
+                print(url)
                 yield resp
 
     SessionRedirectMixin.get_redirect_target = get_redirect_target
