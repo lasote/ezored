@@ -17,7 +17,9 @@ requests_log.propagate = True
 class NoQuotedCommasSession(requests.Session):
     def send(self, *a, **kw):
         # a[0] is prepared request
+        print("---HELLO: {}----".format(a[0].url))
         a[0].url = a[0].url.replace("%7E", "~")
+        print("---WORLD: {}----".format(a[0].url))
         return requests.Session.send(self, *a, **kw)
 
 
