@@ -4,7 +4,7 @@ language: python
 python: "3.7"
 
 script:
-  - pip install requests requests[security] 
+  - pip install requests==2.21
   - echo "-------------------------INSIDE PYTHON------------------------------------"
   - python run2.py
  
