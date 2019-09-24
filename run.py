@@ -46,7 +46,7 @@ if __name__ == "__main__":
         if tmp:
             print("TIPO: {}".format(tmp.__class__))
             print("VALOR: {}".format(tmp))
-            return tmp
+            return to_native_string(tmp.encode("ASCII"))
 
 
     def resolve_redirects(self, resp, req, stream=False, timeout=None,
